@@ -53,12 +53,21 @@ xterm*|rxvt*)
     ;;
 esac
 
+#Upload to paste.gelat.in
+# github.com/snacsnoc/pasteros
+function uploadText {
+
+pasteid=$( curl -silent -H "Expect:" -X POST --data-binary @- http://paste.gelat.in/api/v1/simplecreate | grep -o '[0-9]*' | tail -1)
+echo "http://paste.gelat.in/$pasteid" # | xclip -selection c
+
+}
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 
 alias au='sudo apt-get update'
 alias ag='sudo aptitude safe-upgrade'
-alias cat='pygmentize -g'
+alias ccat='pygmentize -g'
+alias paste=uploadText
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
