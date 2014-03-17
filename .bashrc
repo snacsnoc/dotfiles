@@ -68,6 +68,9 @@ alias au='sudo apt-get update'
 alias ag='sudo aptitude safe-upgrade'
 alias ccat='pygmentize -g'
 alias paste=uploadText
+alias ..="cd .."
+alias ..2="cd ../.."
+alias ..3="cd ../../.."
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -87,3 +90,5 @@ fi
 
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
+
+
