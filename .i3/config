@@ -152,3 +152,6 @@ bindsym Control+Shift+Right exec --no-startup-id clementine -f
 bindsym Control+Shift+Left exec --no-startup-id clementine -r
 bindsym $mod+Delete exec --no-startup-id xflock4
 bindsym $mod+h exec --no-startup-id clementine -t
+
+
+new_window 1pixel
