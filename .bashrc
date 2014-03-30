@@ -66,6 +66,7 @@ alias grep='grep --color=auto'
 
 alias au='sudo apt-get update'
 alias ag='sudo aptitude safe-upgrade'
+alias ai='sudo apt-get install'
 alias ccat='pygmentize -g'
 alias paste=uploadText
 alias ..="cd .."
