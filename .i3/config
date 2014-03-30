@@ -145,13 +145,26 @@ bindsym $mod+r mode "resize"
 
 exec --no-startup-id xfce4-panel
 
-
+#Audio controls
 bindsym $mod+Shift+S exec --no-startup-id amixer set Master 5%+ -q
 bindsym $mod+Shift+A exec --no-startup-id amixer set Master 5%- -q
+
+#Next song
 bindsym Control+Shift+Right exec --no-startup-id clementine -f
+
+#Previous song
 bindsym Control+Shift+Left exec --no-startup-id clementine -r
+
+#Lock display
 bindsym $mod+Delete exec --no-startup-id xflock4
+
+#Pause/play
 bindsym $mod+h exec --no-startup-id clementine -t
 
+
+#Move focus to different X screen for multi monitors
+bindsym $mod+1 exec xdotool mousemove --screen 0 500 100
+bindsym $mod+2 exec xdotool mousemove --screen 2 500 100
+bindsym $mod+3 exec xdotool mousemove --screen 1 500 100
 
 new_window 1pixel
