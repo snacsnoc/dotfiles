@@ -163,8 +163,8 @@ bindsym $mod+h exec --no-startup-id clementine -t
 
 
 #Move focus to different X screen for multi monitors
-bindsym $mod+1 exec xdotool mousemove --screen 0 500 100
-bindsym $mod+2 exec xdotool mousemove --screen 2 500 100
-bindsym $mod+3 exec xdotool mousemove --screen 1 500 100
+bindsym $mod+1 exec --no-startup-id xdotool mousemove --screen 0 500 100
+bindsym $mod+2 exec --no-startup-id xdotool mousemove --screen 2 500 100
+bindsym $mod+3 exec --no-startup-id xdotool mousemove --screen 1 500 100
 
 new_window 1pixel
