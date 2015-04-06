@@ -10,7 +10,8 @@ HISTCONTROL=ignoreboth
 
 # append to the history file, don't overwrite it
 shopt -s histappend
-
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 
 # check the window size after each command and, if necessary,
@@ -57,7 +58,7 @@ esac
 # github.com/snacsnoc/pasteros
 function uploadText {
 
-pasteid=$( curl -silent -H "Expect:" -X POST --data-binary @- http://paste.gelat.in/api/v1/simplecreate | grep -o '[0-9]*' | tail -1)
+pasteid=$( curl -silent -H "Expect:" -X POST --data-binary @- http://paste.gelat.in/api/v1/simplecreate | tail -1)
 echo "http://paste.gelat.in/$pasteid" # | xclip -selection c
 
 }
