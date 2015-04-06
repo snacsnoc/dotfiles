@@ -59,7 +59,7 @@ esac
 function uploadText {
 
 pasteid=$( curl -silent -H "Expect:" -X POST --data-binary @- http://paste.gelat.in/api/v1/simplecreate | tail -1)
-echo "http://paste.gelat.in/$pasteid" # | xclip -selection c
+echo "http://paste.gelat.in/$pasteid"  | xclip -selection c
 
 }
 alias ls='ls --color=auto'
