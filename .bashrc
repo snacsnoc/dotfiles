@@ -58,8 +58,8 @@ esac
 # github.com/snacsnoc/pasteros
 function uploadText {
 
-pasteid=$( curl -silent -H "Expect:" -X POST --data-binary @- http://paste.gelat.in/api/v1/simplecreate | tail -1)
-echo "http://paste.gelat.in/$pasteid"  | xclip -selection c
+pasteid=$( curl -silent -H "Expect:" -X POST --data-binary @- https://pasteros.io/api/v1/simplecreate | tail -1)
+echo "https://pasteros.io/$pasteid" # | xclip -selection c
 
 }
 alias ls='ls --color=auto'
