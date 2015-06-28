@@ -4,10 +4,11 @@
 # Should you change your keyboard layout somewhen, delete
 # this file and re-run i3-config-wizard(1).
 #
-
 # i3 config file (v4)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
+
+#For audio controls, playerctl is used https://github.com/acrisci/playerctl
 
 set $mod Mod1
 
@@ -143,23 +144,23 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-exec --no-startup-id xfce4-panel
+#exec --no-startup-id xfce4-panel
 
 #Audio controls
 bindsym $mod+Shift+S exec --no-startup-id amixer set Master 5%+ -q
 bindsym $mod+Shift+A exec --no-startup-id amixer set Master 5%- -q
 
 #Next song
-bindsym Control+Shift+Right exec --no-startup-id clementine -f
+bindsym Control+Shift+Right exec playerctl next
 
 #Previous song
-bindsym Control+Shift+Left exec --no-startup-id clementine -r
+bindsym Control+Shift+Left exec playerctl previous
 
 #Lock display
 bindsym $mod+Delete exec --no-startup-id xflock4
 
 #Pause/play
-bindsym $mod+h exec --no-startup-id clementine -t
+bindsym $mod+h exec playerctl play-pause
 
 
 #Move focus to different X screen for multi monitors
@@ -168,3 +169,10 @@ bindsym $mod+2 exec --no-startup-id xdotool mousemove --screen 2 500 100
 bindsym $mod+3 exec --no-startup-id xdotool mousemove --screen 1 500 100
 
 new_window 1pixel
+
+bar {
+	status_command i3status --config ~/i3status.conf
+	workspace_buttons no
+	mode dock
+	modifier Mod1
+}
