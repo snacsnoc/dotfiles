@@ -59,9 +59,14 @@ esac
 function uploadText {
 
 pasteid=$( curl -silent -H "Expect:" -X POST --data-binary @- https://pasteros.io/api/v1/simplecreate | tail -1)
-echo "https://pasteros.io/$pasteid" # | xclip -selection c
+echo "https://pasteros.io/$pasteid"  | xclip -selection c
 
 }
+
+mkcd(){
+ mkdir $1 && cd $1
+}
+
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 
