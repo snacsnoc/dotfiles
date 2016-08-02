@@ -70,9 +70,9 @@ mkcd(){
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 
-alias au='sudo apt-get update'
-alias ag='sudo aptitude safe-upgrade'
-alias ai='sudo apt-get install'
+alias au='sudo apt update'
+alias ag='sudo apt upgrade'
+alias ai='sudo apt install'
 alias ccat='pygmentize -g'
 alias paste=uploadText
 alias ..="cd .."
