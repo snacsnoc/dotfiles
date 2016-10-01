@@ -34,7 +34,10 @@ for_window [class="^Steam$" title="^Steam - Self Updater$"] floating enable
 for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
 for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
 for_window [title="^Steam Keyboard$"] floating enable
+for_window [title="^Borderlands 2$"] fullscreen enable
 
+
+for_window [class="^Skype$" title="Skype"] floating enable
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -161,8 +164,8 @@ bindsym $mod+r mode "resize"
 #exec --no-startup-id xfce4-panel
 
 #Audio controls
-bindsym $mod+Shift+S exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym $mod+Shift+A exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym $mod+Shift+S exec --no-startup-id pactl set-sink-volume 1 +5%
+bindsym $mod+Shift+A exec --no-startup-id pactl set-sink-volume 1 -5%
 
 #Next song
 bindsym Control+Shift+Right exec playerctl next
