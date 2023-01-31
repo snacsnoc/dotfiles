@@ -33,12 +33,12 @@ force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+    # We have color support; assume it's compliant with Ecma-48
+    # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+    # a case would tend to support setf rather than setaf.)
+    color_prompt=yes
     else
-	color_prompt=
+    color_prompt=
     fi
 fi
 
@@ -54,18 +54,28 @@ xterm*|rxvt*)
     ;;
 esac
 
-#Upload to paste.gelat.in
+#Upload to paste.geekness.eu
 # github.com/snacsnoc/pasteros
 function uploadText {
 
-pasteid=$( curl -silent -H "Expect:" -X POST --data-binary @- https://pasteros.io/api/v1/simplecreate | tail -1)
-echo "https://pasteros.io/$pasteid"  | xclip -selection c
+pasteid=$( curl -silent -H "Expect:" -X POST --data-binary @- http://paste.geekness.eu/api/v1/simplecreate | tail -1)
+if [ "$(uname)" == "Darwin" ]; then
+echo "http://paste.geekness.eu/$pasteid"  | pbcopy
+elif [ "$(uname)" == "Linux" ]; then
+echo "http://paste.geekness.eu/$pasteid"  | xclip -selection c
+fi  
 
 }
 
 mkcd(){
  mkdir $1 && cd $1
 }
+
+#Homebrew for x86_64
+function ibrew() {
+   arch --x86_64 /usr/local/bin/brew $@
+}
+
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
@@ -93,9 +103,4 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
-
-
-bind '"\e[A": history-search-backward'
-bind '"\e[B": history-search-forward'
-
 
