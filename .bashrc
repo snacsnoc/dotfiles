@@ -54,18 +54,22 @@ xterm*|rxvt*)
     ;;
 esac
 
-#Upload to paste.geekness.eu
-# github.com/snacsnoc/pasteros
-function uploadText {
+# Function to paste content to https://paste.rs and copy URL to clipboard
+function paste() {
+    local file="${1:-/dev/stdin}"  # Default to stdin if no file is provided
+    local url=$(curl -s --data-binary @${file} https://paste.rs)  # Make the POST request and capture the response
 
-pasteid=$( curl -silent -H "Expect:" -X POST --data-binary @- http://paste.geekness.eu/api/v1/simplecreate | tail -1)
-if [ "$(uname)" == "Darwin" ]; then
-echo "http://paste.geekness.eu/$pasteid"  | pbcopy
-elif [ "$(uname)" == "Linux" ]; then
-echo "http://paste.geekness.eu/$pasteid"  | xclip -selection c
-fi  
-
+    if [[ "$(uname)" == "Darwin" ]]; then
+        echo $url | pbcopy  # Copy to clipboard on macOS
+        echo "Paste URL copied to clipboard: $url"
+    elif [[ "$(uname)" == "Linux" ]]; then
+        echo $url | xclip -selection clipboard  # Copy to clipboard on Linux
+        echo "Paste URL copied to clipboard: $url"
+    else
+        echo "Paste URL: $url"
+    fi
 }
+
 
 mkcd(){
  mkdir $1 && cd $1
@@ -103,4 +107,21 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
+
+if [ -n "$ZSH_VERSION" ]; then
+    if command -v ngrok &>/dev/null; then
+      eval "$(ngrok completion)"
+    fi
+fi
+
+
+# Check the operating system
+if [[ "$(uname)" == "Darwin" ]]; then
+    # MacOS specific PATH
+    export PATH="/opt/homebrew/opt/ruby/bin:/opt/homebrew/bin:/opt/homebrew/opt/libpq/bin:/Applications/Sublime\ Text.app/Contents/SharedSupport/bin:/Users/easto/.cargo/bin:/usr/local/bin:/Users/easto/Downloads/google-cloud-sdk/bin:$PATH"
+else
+    # Linux specific PATH
+    export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:$PATH"
+fi
+
 
