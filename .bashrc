@@ -92,6 +92,16 @@ alias paste=uploadText
 alias ..="cd .."
 alias ..2="cd ../.."
 alias ..3="cd ../../.."
+
+
+# Mac aliases 
+
+# brew install jwbargsten/misc/defbro
+# https://github.com/jwbargsten/defbro
+alias set-ff='defbro org.mozilla.firefox'
+alias set-cr='defbro com.google.Chrome'
+alias set-sf='defbro com.apple.SafariTechnologyPreview'
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
