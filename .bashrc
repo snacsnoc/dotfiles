@@ -42,7 +42,8 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-PS1="\[\e[00;37m\][\[\e[0m\]\[\e[00;32m\]\u\[\e[0m\]\[\e[00;33m\]@\[\e[0m\]\[\e[00;32m\]\h\[\e[0m\]\[\e[00;37m\]]\[\e[0m\]\[\e[00;36m\][\w]\[\e[0m\]\$ "
+#PS1="\[\e[00;37m\][\[\e[0m\]\[\e[00;32m\]\u\[\e[0m\]\[\e[00;33m\]@\[\e[0m\]\[\e[00;32m\]\h\[\e[0m\]\[\e[00;37m\]]\[\e[0m\]\[\e[00;36m\][\w]\[\e[0m\]\$ "
+PS1="\[\e[00;37m\][\[\e[0m\]\[\e[00;32m\]\u\[\e[0m\]\[\e[00;33m\]@\[\e[0m\]\[\e[00;32m\]\h\[\e[0m\]\[\e[00;37m\]]\[\e[0m\]\[\e[00;36m\][\w]\[\e[0m\]\[\$(git branch 2>/dev/null | grep '^*' | colrm 1 2 | awk '{print \" (\" \$1 \")\"}')\]\$ "
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
