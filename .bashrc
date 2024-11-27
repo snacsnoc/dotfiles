@@ -56,14 +56,20 @@ esac
 
 # Function to paste content to https://paste.rs and copy URL to clipboard
 function paste() {
-    local file="${1:-/dev/stdin}"  # Default to stdin if no file is provided
-    local url=$(curl -s --data-binary @${file} https://paste.rs)  # Make the POST request and capture the response
+    if [[ -p /dev/stdin ]]; then
+        # Read from stdin if input is piped
+        local url=$(curl -s --data-binary @- https://paste.rs)
+    else
+        # Read from file if an argument is provided
+        local file="${1:-/dev/stdin}"
+        local url=$(curl -s --data-binary @"${file}" https://paste.rs)
+    fi
 
     if [[ "$(uname)" == "Darwin" ]]; then
-        echo $url | pbcopy  # Copy to clipboard on macOS
+        echo "$url" | pbcopy  # Copy to clipboard on macOS
         echo "Paste URL copied to clipboard: $url"
     elif [[ "$(uname)" == "Linux" ]]; then
-        echo $url | xclip -selection clipboard  # Copy to clipboard on Linux
+        echo "$url" | xclip -selection clipboard  # Copy to clipboard on Linux
         echo "Paste URL copied to clipboard: $url"
     else
         echo "Paste URL: $url"
@@ -88,11 +94,20 @@ alias au='sudo apt update'
 alias ag='sudo apt upgrade'
 alias ai='sudo apt install'
 alias ccat='pygmentize -g'
-alias paste=uploadText
 alias ..="cd .."
 alias ..2="cd ../.."
 alias ..3="cd ../../.."
+alias ~="cd ~" 
 
+# Git stuff
+alias gs='git status'
+alias gd='git diff'
+alias gb='git branch'
+
+# Python stuff
+alias cvenv='python3 -m venv'
+alias actenv='source venv/bin/activate'
+alias serve='python3 -m http.server 8000'
 
 # Mac aliases 
 
@@ -101,6 +116,15 @@ alias ..3="cd ../../.."
 alias set-ff='defbro org.mozilla.firefox'
 alias set-cr='defbro com.google.Chrome'
 alias set-sf='defbro com.apple.SafariTechnologyPreview'
+
+alias brewup='brew update && brew upgrade && brew cleanup' # Update and upgrade Homebrew
+alias myip='curl ifconfig.me'            
+alias localip='ipconfig getifaddr en0'    
+alias flushdns='sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder' 
+
+
+alias spotify='open -a Spotify'        
+
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
