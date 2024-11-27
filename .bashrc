@@ -5,9 +5,11 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-HISTCONTROL=$HISTCONTROL${HISTCONTROL+:}ignoredups
-HISTCONTROL=ignoreboth
 
+HISTCONTROL=ignoreboth
+HISTSIZE=10000         
+HISTFILESIZE=20000
+HISTTIMEFORMAT='%F %T '
 # append to the history file, don't overwrite it
 shopt -s histappend
 bind '"\e[A": history-search-backward'
@@ -42,8 +44,7 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-#PS1="\[\e[00;37m\][\[\e[0m\]\[\e[00;32m\]\u\[\e[0m\]\[\e[00;33m\]@\[\e[0m\]\[\e[00;32m\]\h\[\e[0m\]\[\e[00;37m\]]\[\e[0m\]\[\e[00;36m\][\w]\[\e[0m\]\$ "
-PS1="\[\e[00;37m\][\[\e[0m\]\[\e[00;32m\]\u\[\e[0m\]\[\e[00;33m\]@\[\e[0m\]\[\e[00;32m\]\h\[\e[0m\]\[\e[00;37m\]]\[\e[0m\]\[\e[00;36m\][\w]\[\e[0m\]\[\$(git branch 2>/dev/null | grep '^*' | colrm 1 2 | awk '{print \" (\" \$1 \")\"}')\]\$ "
+PS1="\[\e[00;32m\]\u@\h \[\e[00;36m\][\w]\[\$(git branch 2>/dev/null | grep '^*' | colrm 1 2 | awk '{print \" \[\e[33m\](\" \$1 \")\[\e[0m\]\"}')\] \[\e[0m\]\$ "
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
