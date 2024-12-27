@@ -1,0 +1,64 @@
+
+# Dracula Background and Foreground
+background = #282a36
+foreground = #f8f8f2
+
+# Cursor
+cursor-color = #f844ac
+
+# Palette
+palette = 0=#000000
+palette = 1=#ff5555
+palette = 2=#50fa7b
+palette = 3=#f1fa8c
+palette = 4=#bd93f9
+palette = 5=#ff79c6
+palette = 6=#8be9fd
+palette = 7=#bbbbbb
+palette = 8=#44475a
+palette = 9=#ff5555
+palette = 10=#50fa7b
+palette = 11=#f1fa8c
+palette = 12=#bd93f9
+palette = 13=#ff79c6
+palette = 14=#8be9fd
+palette = 15=#ffffff
+
+
+
+# Font Settings
+
+# font-family = JetBrains Mono
+# brew install --cask font-fira-code
+font-family = ""
+font-family = "Fira Code Regular"
+# Set the font size in points
+font-size = 12
+
+# Enable synthetic styles like bold and italic if not natively supported
+font-synthetic-style = true
+
+command = /opt/homebrew/bin/bash
+
+
+# Keybindings
+
+# Open a new tab with Ctrl+Shift+T
+keybind = ctrl+shift+t=new_tab
+
+# Close a tab with Ctrl+Shift+W
+keybind = ctrl+shift+w=close_surface
+
+# Split the screen to the right with Ctrl+Shift+Enter
+keybind = ctrl+shift+enter=new_split:right
+
+# Terminal Behavior
+
+# Set the scrollback limit for logs and history
+scrollback-limit = 100000
+
+# Automatically copy selected text to clipboard
+copy-on-select = true
+
+# Enable mouse-based scrolling with a default multiplier
+mouse-scroll-multiplier = 1
