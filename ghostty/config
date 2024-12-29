@@ -25,10 +25,13 @@ palette = 14=#8be9fd
 palette = 15=#ffffff
 
 
+# Enforce a minimum contrast ratio
+# anything lower is adjusted automatically
+minimum-contrast = 3
+
 
 # Font Settings
 
-# font-family = JetBrains Mono
 # brew install --cask font-fira-code
 font-family = ""
 font-family = "Fira Code Regular"
@@ -38,6 +41,26 @@ font-size = 12
 # Enable synthetic styles like bold and italic if not natively supported
 font-synthetic-style = true
 
+# Make bold text also use a “bright” color palette
+bold-is-bright = true
+
+# Values: block, bar, underline, block_hollow
+cursor-style = block
+cursor-style-blink = true
+
+# Change the opacity of the cursor (0=fully transparent, 1=fully opaque)
+cursor-opacity = 1
+
+# Allow Alt+Click to move the cursor at a shell prompt (requires shell integration)
+cursor-click-to-move = true
+
+# Translucent terminal
+# (note: macOS fullscreen may ignore this)
+background-opacity = 0.87
+
+background-blur-radius = 20
+
+# Default command for new shells
 command = /opt/homebrew/bin/bash
 
 
@@ -62,3 +85,23 @@ copy-on-select = true
 
 # Enable mouse-based scrolling with a default multiplier
 mouse-scroll-multiplier = 1
+
+# Auto-detect your shell type and enhance features (prompt marking, title, etc.)
+shell-integration = detect
+
+# Control which integration features are enabled or disabled
+shell-integration-features = cursor,title
+
+
+# Add padding around the terminal content
+window-padding-x = 8
+window-padding-y = 8
+
+# When multiple panes are open, hover to focus a pane automatically
+focus-follows-mouse = true
+
+# Control new-tab creation order: "current" inserts after the focused tab, "end" always appends
+window-new-tab-position = end
+
+# Confirm before closing a tab/window
+confirm-close-surface = true
