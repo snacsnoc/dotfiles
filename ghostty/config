@@ -60,9 +60,7 @@ background-opacity = 0.87
 
 background-blur-radius = 20
 
-# Default command for new shells
-command = /opt/homebrew/bin/bash
-
+unfocused-split-opacity = 1
 
 # Keybindings
 
