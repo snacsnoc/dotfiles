@@ -125,8 +125,10 @@ alias localip='ipconfig getifaddr en0'
 alias flushdns='sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder' 
 
 
-alias spotify='open -a Spotify'        
+alias spotify='open -a Spotify' 
 
+# See https://aria2.github.io/manual/en/html/aria2c.html#options
+alias arc='aria2c -x 16 -s 16'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
