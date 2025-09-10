@@ -47,6 +47,8 @@ bold-is-bright = true
 # Values: block, bar, underline, block_hollow
 cursor-style = block
 cursor-style-blink = true
+adjust-cursor-thickness = 400%
+adjust-cursor-height = 22%
 
 # Change the opacity of the cursor (0=fully transparent, 1=fully opaque)
 cursor-opacity = 1
@@ -60,6 +62,8 @@ background-opacity = 0.87
 
 background-blur-radius = 20
 
+macos-titlebar-style = "tabs"
+macos-window-shadow = false
 unfocused-split-opacity = 1
 
 # Keybindings
