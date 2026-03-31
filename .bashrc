@@ -155,6 +155,7 @@ fi
 
 # Check the operating system
 if [[ "$(uname)" == "Darwin" ]]; then
+    alias nano='/opt/homebrew/bin/nano'
     # MacOS specific PATH
     export PATH="/opt/homebrew/opt/ruby/bin:/opt/homebrew/bin:/opt/homebrew/opt/libpq/bin:/Applications/Sublime\ Text.app/Contents/SharedSupport/bin:/Users/easto/.cargo/bin:/usr/local/bin:/Users/easto/Downloads/google-cloud-sdk/bin:$PATH"
 else
@@ -163,3 +164,12 @@ else
 fi
 
 
+if [ -f "$HOME/.cargo/env" ]; then
+    . "$HOME/.cargo/env"
+fi
+
+# Added by LM Studio CLI (lms)
+if [[ "$(uname)" == "Darwin" ]]; then
+    export PATH="$PATH:/Users/easto/.cache/lm-studio/bin"
+fi
+# End of LM Studio CLI section
