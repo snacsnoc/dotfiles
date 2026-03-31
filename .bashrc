@@ -80,7 +80,7 @@ function paste() {
 
 
 mkcd(){
- mkdir $1 && cd $1
+ mkdir -p -- "$1" && cd -- "$1"
 }
 
 #Homebrew for x86_64
@@ -95,6 +95,7 @@ alias grep='grep --color=auto'
 alias au='sudo apt update'
 alias ag='sudo apt upgrade'
 alias ai='sudo apt install'
+
 alias ccat='pygmentize -g'
 alias ..="cd .."
 alias ..2="cd ../.."
