@@ -92,7 +92,7 @@ mouse-scroll-multiplier = 1
 shell-integration = detect
 
 # Control which integration features are enabled or disabled
-shell-integration-features = cursor,title
+shell-integration-features = cursor,title,sudo,ssh-terminfo,ssh-env
 
 
 # Add padding around the terminal content
