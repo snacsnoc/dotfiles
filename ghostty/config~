@@ -63,7 +63,6 @@ background-opacity = 0.87
 background-blur-radius = 20
 
 macos-titlebar-style = "tabs"
-macos-window-shadow = false
 unfocused-split-opacity = 1
 
 # Keybindings
@@ -92,7 +91,7 @@ mouse-scroll-multiplier = 1
 shell-integration = detect
 
 # Control which integration features are enabled or disabled
-shell-integration-features = cursor,title,sudo,ssh-terminfo,ssh-env
+shell-integration-features = cursor,title
 
 
 # Add padding around the terminal content
@@ -101,11 +100,6 @@ window-padding-y = 8
 
 # When multiple panes are open, hover to focus a pane automatically
 focus-follows-mouse = true
-
-
-# Fix trapping mouse events after bad terminal cleanup
-mouse-reporting = true
-keybind = shift+cmd+m=toggle_mouse_reporting
 
 # Control new-tab creation order: "current" inserts after the focused tab, "end" always appends
 window-new-tab-position = end
