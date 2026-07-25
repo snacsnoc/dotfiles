@@ -120,7 +120,8 @@ alias set-ff='defbro org.mozilla.firefox'
 alias set-cr='defbro com.google.Chrome'
 alias set-sf='defbro com.apple.SafariTechnologyPreview'
 
-alias brewup='brew update && brew upgrade && brew cleanup' # Update and upgrade Homebrew
+alias brewup='brew update; brew upgrade; brew cleanup'
+
 alias myip='curl ifconfig.me'            
 alias localip='ipconfig getifaddr en0'    
 alias flushdns='sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder' 
@@ -158,7 +159,7 @@ fi
 if [[ "$(uname)" == "Darwin" ]]; then
     alias nano='/opt/homebrew/bin/nano'
     # MacOS specific PATH
-    export PATH="/opt/homebrew/opt/ruby/bin:/opt/homebrew/bin:/opt/homebrew/opt/libpq/bin:/Applications/Sublime\ Text.app/Contents/SharedSupport/bin:/Users/easto/.cargo/bin:/usr/local/bin:/Users/easto/Downloads/google-cloud-sdk/bin:$PATH"
+    export PATH="/opt/homebrew/opt/ruby/bin:/opt/homebrew/bin:/opt/homebrew/opt/libpq/bin:/Applications/Sublime\ Text.app/Contents/SharedSupport/bin:/Users/easto/.cargo/bin:/usr/local/bin:/Users/easto/Downloads/google-cloud-sdk/bin:/Users/easto/.local/bin:$PATH"
 else
     # Linux specific PATH
     export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:$PATH"
@@ -174,3 +175,5 @@ if [[ "$(uname)" == "Darwin" ]]; then
     export PATH="$PATH:/Users/easto/.cache/lm-studio/bin"
 fi
 # End of LM Studio CLI section
+eval "$(fnm env --use-on-cd --shell bash)"
+
