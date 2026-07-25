@@ -63,7 +63,7 @@ background-opacity = 0.87
 background-blur-radius = 20
 
 macos-titlebar-style = "tabs"
-macos-window-shadow = false
+#macos-window-shadow = false
 unfocused-split-opacity = 1
 
 # Keybindings
